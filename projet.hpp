@@ -33,7 +33,7 @@ ostream & operator <<(ostream &, const Point &);
 
 vector<double> Subdiv(double a,int N);
 void print_v(vector<double> A);
-int numgb(int N,int M, const Point &P);
+int numgb(int N,int M, int i,int j);
 
 
 
