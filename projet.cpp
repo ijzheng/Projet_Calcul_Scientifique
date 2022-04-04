@@ -70,7 +70,44 @@ int numgb(int N,int M,int i,int j)
 }
 
 
+//2.1.1.4
+double* invnumgb(int N, int M, int s){
+    double * couple=zero(2);
+    couple[0]=s%(N+1);// i: le reste de la division s par (N+1)
+    couple[1]=s/(N+1);// j: le quotient de la division s par (N+1)
+    return couple;  
+}
 
+//2.1.2 Numérotation des noeuds intérieurs
+//2.1.2.1
+int numint(int N, int M, int i, int j){
+    return (j-1)*(N-1)+i-1; 
+}
+
+//2.1.2.3
+double* invnumint(int N, int M, int k){
+    double *couple=zero(2);
+    couple[0]=k%(N+1)+1; // i-1 est le reste de la division k par (N+1)
+    couple[1]=k/(N+1)+1; // j-1 est le quotient de la division k par (N+1)
+    return couple;
+}
+
+
+//2.1.2.4 Donner k et renvoyer s en utilisant la fonction numgb et invnumint
+int num_int_gb(int N, int M, int k){
+    int i=invnumint(N,M,k)[0];
+    int j=invnumint(N,M,k)[1];
+    int s=numgb(N,M,i,j);
+    return s;
+}
+
+//2.1.2.5 Donner s et renvoyer k en utilisant la fonction invnumgb et numint.
+int num_int_gb(int N, int M, int s){
+    int i=invnumgb(N,M,s)[0];
+    int j=invnumgb(N,M,s)[1];
+    int k= numint(N,M,i,j);
+    return k;
+}
 
 
 
